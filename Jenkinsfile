@@ -1,15 +1,17 @@
+def myfn() {
+  println "welcome to jenkins functions"  
+}
+def subject_details(subject){
+  println "subject passed is ${subject}"
+}
 pipeline {
   agent any
   stages {
-    stage('git checkout') {
+    stage('working with functions') {
       steps {
         script {
-          File file = new File("/opt/mydata.txt")
-          def lines = file.readLines()
-          println "Lines\n ${lines}"
-          for (line in lines) {
-            println "myline is ${line}"
-          }
+          myfn()
+          subject_details("Jenkins")
         }
       }  
     }
